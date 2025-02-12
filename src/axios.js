@@ -27,6 +27,23 @@ const getUserData = async () => {
   }
 };
 
+const updateUserData = async (user) => {
+  try {
+      const token = getToken(); 
+      if (!token) throw new Error('Токен отсутствует!');
+
+      const response = await api.put('/update', user, {
+          headers: {
+              Authorization: `Bearer ${token}`
+          }
+      });
+
+      return response.data;
+  } catch (err) {
+      throw err;
+  }
+};
+
 
 const loginUser = async (login, password) => {
   try {
@@ -83,5 +100,6 @@ export default {
   registerUser,
   deleteUser,
   updateUser,
-  getUserData
+  getUserData,
+  updateUserData
 };
