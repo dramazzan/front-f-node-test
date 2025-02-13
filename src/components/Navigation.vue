@@ -32,7 +32,6 @@ const logout = () => {
 </template>
 
 <style scoped>
-/* Стили для навигации */
 .navbar {
     background: #f0f0f0;
   padding: 15px;
@@ -67,7 +66,6 @@ const logout = () => {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Стили для кнопки Logout */
 .logout-button {
   background-color: #e74c3c;
   color: white;
@@ -83,7 +81,6 @@ const logout = () => {
   background-color: #c0392b;
 }
 
-/* Стили для Login */
 .login {
   background-color: #3498db;
   padding: 8px 12px;

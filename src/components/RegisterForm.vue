@@ -13,15 +13,14 @@ const user = ref({
 });
 
 const password2 = ref('');
-const errors = ref({}); // Объект для хранения ошибок валидации
+const errors = ref({}); 
 const loading = ref(false);
 
 const submitRegister = async () => {
   loading.value = true;
-  errors.value = {}; // Сбрасываем ошибки перед отправкой
+  errors.value = {}; 
 
   try {
-    // Проверка пароля на клиенте
     if (user.value.password !== password2.value) {
       errors.value.password2 = "Passwords do not match";
       loading.value = false;
@@ -42,7 +41,6 @@ const submitRegister = async () => {
     }
   } catch (err) {
     if (err.response?.data?.errors) {
-      // Записываем ошибки от сервера
       err.response.data.errors.forEach(error => {
         errors.value[error.path] = error.msg;
       });
@@ -94,7 +92,6 @@ const submitRegister = async () => {
 </template>
 
 <style scoped>
-/* Общие стили */
 * {
   margin: 0;
   padding: 0;
@@ -102,7 +99,6 @@ const submitRegister = async () => {
   font-family: "Roboto", sans-serif;
 }
 
-/* Фон */
 main {
   display: flex;
   justify-content: center;
@@ -110,7 +106,6 @@ main {
   height: 100vh;
 }
 
-/* Контейнер формы */
 .register-box {
   width: 350px;
   padding: 25px;
@@ -125,7 +120,6 @@ main {
   color: #333;
 }
 
-/* Поля ввода */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -154,12 +148,10 @@ main {
   box-shadow: 0px 0px 5px rgba(9, 132, 227, 0.5);
 }
 
-/* Красная граница для полей с ошибками */
 .error-border input {
   border: 1px solid red !important;
 }
 
-/* Кнопка */
 button {
   width: 100%;
   padding: 12px;
@@ -181,7 +173,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Ошибки */
 .error {
   margin-top: 5px;
   color: red;
